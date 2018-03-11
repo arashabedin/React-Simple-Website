@@ -35,11 +35,19 @@ return(
 <br/>
 <img className ="avatar" src={repos && repos[0].owner.avatar_url}/>
 <h1>{this.props.match.params.username}</h1>
+<h2>Projects</h2>
 {repos && repos.map(function(item){
 
-return <div>
+return <div className='repos'>
 <strong>{item.name}</strong>
-<br/>
+<hr/>
+<p>
+{item.language  ? 'language: ' + item.language:""}
+</p>
+<p>
+{item.description  ? 'description: ' + item.description:'no data'}
+
+</p>
 </div>
 
 })}

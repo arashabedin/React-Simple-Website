@@ -36,3 +36,19 @@ width:160px;
   display: inline-block;
   margin:10px;
 }
+
+.repos {
+float:left;
+margin: 20px;
+width: 250px;
+min-height: 250px;
+border:1px solid darkslategray;
+padding:4px;
+border-radius: 10px;
+overflow: hidden;
+}
+.repos p{
+
+  text-align: left;
+  
+}
