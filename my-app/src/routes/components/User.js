@@ -33,9 +33,10 @@ return(
     
 <div className="App">
 <br/>
-<img className ="avatar" src={repos && repos[0].owner.avatar_url}/>
+<img alt='' className ="avatar" src={repos && repos[0].owner.avatar_url}/>
 <h1>{this.props.match.params.username}</h1>
 <h2>Projects</h2>
+<div id = "repos_container">
 {repos && repos.map(function(item){
 
 return <div className='repos'>
@@ -48,9 +49,11 @@ return <div className='repos'>
 {item.description  ? 'description: ' + item.description:'no data'}
 
 </p>
+
 </div>
 
 })}
+</div>
 </div>
 );
 }

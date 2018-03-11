@@ -30,6 +30,16 @@ class Home extends Component {
               });
           }
       )
+    ).then(
+      fetch(`https://api.github.com/users/mdmosiurrahman`)
+      .then(response => response.json())
+      .then(
+          user=> {
+              this.setState({
+                  user3: user
+              });
+          }
+      )
     );
 
     
@@ -43,7 +53,7 @@ class Home extends Component {
   }
     const user1 = this.state.user;
     const user2 = this.state.user2;
-    const user1_repos = this.state.user1_repos;
+    const user3= this.state.user3;
 
     return (
       
@@ -55,22 +65,28 @@ class Home extends Component {
         <p className="App-intro">
          {this.props.children}
         </p>
-        <div className="user">
-        <img className ="avatar" src={user1 && user1.avatar_url}/>
-        <h2 className="user-info__title">{user1 && user1.login} </h2>
-      
-        <Link to={`/user/${user1 && user1.login }`}>see more</Link>
+        <UserTemp user={user1}/>
+        <UserTemp user={user2}/>
+        <UserTemp user={user3}/>
 
-        </div>
-
-        <div className="user">
-        <img className ="avatar" src={user2 && user2.avatar_url}/>
-        <h2 className="user-info__title">{user2 && user2.login } </h2>
-        <Link to={`/user/${user2 && user2.login }`}>see more</Link>
-
-        </div>
       </div>
     );
   }
 }
+
+
+class UserTemp extends Component{
+render(){
+return(
+   <div className="user">
+    <img alt='' className ="avatar" src={ this.props.user && this.props.user.avatar_url}/>
+    <h2 className="user-info__title">{this.props.user && this.props.user.login } </h2>
+    <Link to={`/user/${this.props.user && this.props.user.login }`}>see more</Link>
+
+  </div>
+
+);
+}
+}
+
 export default Home;
