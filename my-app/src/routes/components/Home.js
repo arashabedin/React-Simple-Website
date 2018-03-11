@@ -65,9 +65,9 @@ class Home extends Component {
         <p className="App-intro">
          {this.props.children}
         </p>
-        <UserTemp user={user1}/>
-        <UserTemp user={user2}/>
-        <UserTemp user={user3}/>
+        <UserTemp img ={"https://secure.gravatar.com/avatar/a6ccb78f7dbff4396cbb7d6ac3465131?s=512&r=g&d=retro"} user={user1}/>
+        <UserTemp img ={"https://avatarchamber.com/t/0/36/avatar-iguana-lizards-9rd.jpg"} user={user2}/>
+        <UserTemp img ={"https://avatarfiles.alphacoders.com/680/68087.jpg"} user={user3}/>
 
       </div>
     );
@@ -79,7 +79,7 @@ class UserTemp extends Component{
 render(){
 return(
    <div className="user">
-    <img alt='' className ="avatar" src={ this.props.user && this.props.user.avatar_url}/>
+    <img alt='' className ="avatar" src={ this.props.img}/>
     <h2 className="user-info__title">{this.props.user && this.props.user.login } </h2>
     <Link to={`/user/${this.props.user && this.props.user.login }`}>see more</Link>
 
